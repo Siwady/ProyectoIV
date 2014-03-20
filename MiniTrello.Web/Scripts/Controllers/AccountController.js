@@ -56,7 +56,8 @@ angular.module('app.controllers')
             .register($scope.registerModel)
             .success(function (data, status, headers, config) {
                 console.log(data);
-                $scope.goToLogin();
+                if (data.Code != "Error")
+                    $scope.goToLogin();
             })
             .error(function (data, status, headers, config) {
                 console.log(data);

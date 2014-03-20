@@ -40,7 +40,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 controller: 'AccountController'
             })
             .state('boards', {
-                url: '/organization/:organizationId',
+                url: '/board/:organizationId',
                 templateUrl: '/views/boards',
                 controller: 'BoardController'
             })
@@ -49,7 +49,16 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/organizations',
                 controller: 'OrganizationController'
             })
-            
+            .state('addOrganizations', {
+                url: '/organizations/newOrganization',
+                templateUrl: '/views/newOrganization',
+                controller: 'OrganizationController'
+            })
+            .state('addBoards', {
+                url: '/boards/newBoard/:organizationId',
+                templateUrl: '/views/newBoard',
+                controller: 'BoardController'
+            })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: '/views/404',

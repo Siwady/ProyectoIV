@@ -137,9 +137,9 @@ namespace MiniTrello.Api.Controllers
             return _mappingEngine.Map<Board, ReturnMembersModel>(board);
         }
 
-        /*[AcceptVerbs("GET")]
+        [AcceptVerbs("GET")]
         [GET("boards/{organizationId}/{accessToken}")]
-        public ReturnModel GetOrganizations(string organizationId,string accessToken)
+        public ReturnModel GetOrganizations(long organizationId,string accessToken)
         {
             var account = _readOnlyRepository.First<Account>(account1 => account1.Token == accessToken);
             ReturnModel remodel = new ReturnModel();
@@ -147,23 +147,27 @@ namespace MiniTrello.Api.Controllers
             {
                 if (account.VerifyToken(account))
                 {
-                    var organization = _readOnlyRepository.First<Account>(account1 => account1.Token == accessToken);
-                    ReturnOrganizationsModel organizationsmodel = _mappingEngine.Map<Organization, ReturnBoardsModel>(organization);
-                    ReturnOrganizationsModel organ = new ReturnOrganizationsModel();
-                    organ.Organizations = new List<Organization>();
-                    foreach (var or in organizationsmodel.Organizations)
+                    var organization = _readOnlyRepository.GetById<Organization>(organizationId);
+                    if (organization != null)
                     {
-                        Organization o = new Organization();
-                        o.Title = or.Title;
-                        o.Id = or.Id;
-                        organ.Organizations.Add(o);
+                        ReturnBoardsModel boardsModel = _mappingEngine.Map<Organization, ReturnBoardsModel>(organization);
+                        var boards = new ReturnBoardsModel();
+                        boards.Boards = new List<Board>();
+                        foreach (var or in boardsModel.Boards)
+                        {
+                            var o = new Board();
+                            //o.Administrator = or.Administrator;
+                            o.Title = or.Title;
+                            o.Id = or.Id;
+                            boards.Boards.Add(o);
+                        }
+                        return boards.ConfigureModel("Successfull", "", boards);
                     }
-                    return organ.ConfigureModel("Successfull", "", organ);
                 }
                 return remodel.ConfigureModel("Error", "Su session ya expiro", remodel);
             }
             return remodel.ConfigureModel("Error", "No se pudo acceder a su cuenta", remodel);
-        }*/
+        }
 
     }
 }

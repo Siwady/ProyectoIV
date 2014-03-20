@@ -13,6 +13,10 @@ angular.module('app.services').factory('BoardServices', ['$http', '$window', fun
         return $http.get(baseUrl + '/boards/' +id+'/'+ $window.sessionStorage.token);
     };
 
+    board.addBoard = function (model) {
+        console.log("entreeee"+ model.OrganizationId);
+        return $http.post(baseUrl + '/CreateBoard/' + model.OrganizationId + '/' + $window.sessionStorage.token, model);
+    };
     return board;
 
 }]);

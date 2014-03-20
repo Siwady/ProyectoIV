@@ -14,8 +14,9 @@ angular.module('app.controllers')
       // $scope.boardDetailId = $stateParams.boardId;
 
         //console.log($location.search().boardId);
+        $scope.newBoardModel = { Title: '', Description: '', OrganizationId: $stateParams.organizationId};
 
-        console.log($scope.boardDetailId);
+        //console.log($scope.boardDetailId);
 
         $scope.boards = [];
 
@@ -23,7 +24,18 @@ angular.module('app.controllers')
         var board1 = { Id: 2, Name: 'Myboard2', Description: 'Description2' };
         $scope.boards.push(board);
     $scope.boards.push(board1);*/
-        
+        $scope.addBoard = function () {
+            console.log("dentro de la funcion");
+            boardServices
+                .addBoard($scope.newBoardModel)
+              .success(function (data, status, headers, config) {
+                  if(data.Code!=null)
+                    $location.path('/board/'+$stateParams.organizationId);
+              })
+              .error(function (data, status, headers, config) {
+              });
+            //$location.path('/');
+        };
 
         $scope.getBoardsForLoggedUser = function () {
             console.log($stateParams.organizationId);
@@ -37,6 +49,11 @@ angular.module('app.controllers')
             });
             //$location.path('/');
         };
+
+        $scope.GoToNewBoard = function () {
+            $location.path('/boards/newBoard/'+$stateParams.organizationId);
+        };
+
         $scope.getBoardsForLoggedUser();
    
 

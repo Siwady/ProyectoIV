@@ -8,6 +8,7 @@ angular.module('app.controllers')
     // Path: /login
     .controller('OrganizationController', ['$scope', '$location', '$window', 'OrganizationServices', '$stateParams', function ($scope, $location, $window, organizationServices, $stateParams) {
 
+        $scope.newOrganizationModel = { Title: '', Description: '' };
 
         $scope.organizations = [];
 
@@ -23,12 +24,28 @@ angular.module('app.controllers')
               });
             //$location.path('/');
         };
+        $scope.addOrganization= function () {
+            console.log("dentro de la funcion");
+            organizationServices
+                .addOrganization($scope.newOrganizationModel)
+              .success(function (data, status, headers, config) {
+                      $location.path('/organizations');
+              })
+              .error(function (data, status, headers, config) {
+                  $location.path('/organizations');
+              });
+            //$location.path('/');
+        };
 
         $scope.getOrganizationsForLoggedUser();
         
+        $scope.GoToNewOrganization = function () {
+            $location.path('/organizations/newOrganization');
+        };
 
-
-
+        $scope.GoToOrganization = function () {
+            $location.path('/organizations');
+        };
 
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });

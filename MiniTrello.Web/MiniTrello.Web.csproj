@@ -511,6 +511,8 @@
     <Content Include="Views\boards.cshtml" />
     <Content Include="Views\boardDetail.cshtml" />
     <Content Include="Views\organizations.cshtml" />
+    <Content Include="Views\newOrganization.cshtml" />
+    <Content Include="Views\newBoard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,7 @@
 ﻿<div class="container">
+    <div >
+        <button ng-click="GoToNewOrganization()" class="btn btn-lg btn-success btn-block">New Organization</button>
+    </div>
     <div class="row" ng-repeat="organization in organizations.Organizations">
         <div class="col-md-6">
             <div class="well well-sm">
@@ -8,7 +11,7 @@
                              class="img-rounded img-responsive" />
                     </div>
                     <div class="col-xs-9 col-md-9 section-box">
-                        <a href="/organization/{{organization.Id}}  ">
+                        <a href="/board/{{organization.Id}}  ">
                             <h2>
                                 {{organization.Title}}
                             </h2>
