@@ -21,7 +21,8 @@ namespace App.MiniTrello.Web
 
             bundles.Add(new ScriptBundle("~/js/vendors").Include(
                 "~/scripts/vendor/jquery-2.0.3.js",
-                "~/scripts/vendor/angular.js"));
+                "~/scripts/vendor/angular.js"
+                ));
 
             bundles.Add(new ScriptBundle("~/js/app").Include(
                 "~/scripts/vendor/angular-ui-router.js",
