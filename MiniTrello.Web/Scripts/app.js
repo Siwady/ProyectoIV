@@ -39,6 +39,18 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/register',
                 controller: 'AccountController'
             })
+            .state('changePassword', {
+                url: '/changePassword',
+                layout: 'basic',
+                templateUrl: '/views/changePassword',
+                controller: 'AccountController'
+            })
+            .state('resetPassword', {
+                url: '/resetPassword',
+                layout: 'basic',
+                templateUrl: '/views/resetPassword',
+                controller: 'AccountController'
+            })
             .state('boards', {
                 url: '/board/:organizationId',
                 templateUrl: '/views/boards',
@@ -49,13 +61,38 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/organizations',
                 controller: 'OrganizationController'
             })
+            .state('lines', {
+                url: '/line/:boardId',
+                templateUrl: '/views/lines',
+                controller: 'LineController'
+            })
+            .state('cards', {
+                url: '/card/:lineId',
+                templateUrl: '/views/cards',
+                controller: 'CardController'
+            })
             .state('addOrganizations', {
                 url: '/organizations/newOrganization',
                 templateUrl: '/views/newOrganization',
                 controller: 'OrganizationController'
             })
+            .state('addLines', {
+                url: '/lines/newLine/:boardId',
+                templateUrl: '/views/newLine',
+                controller: 'LineController'
+            })
+            .state('addCards', {
+                url: '/cards/newCard/:lineId',
+                templateUrl: '/views/newCard',
+                controller: 'CardController'
+            })
             .state('addBoards', {
                 url: '/boards/newBoard/:organizationId',
+                templateUrl: '/views/newBoard',
+                controller: 'BoardController'
+            })
+            .state('moveCard', {
+                url: '/moveCard',
                 templateUrl: '/views/newBoard',
                 controller: 'BoardController'
             })

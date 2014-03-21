@@ -30,6 +30,8 @@ namespace App.MiniTrello.Web
                 "~/scripts/Services/AccountServices.js",
                 "~/scripts/Services/BoardServices.js",
                 "~/scripts/Services/OrganizationServices.js",
+                "~/scripts/Services/LineServices.js",
+                "~/scripts/Services/CardServices.js",
                 "~/scripts/Directives/directives.js",
                 "~/scripts/Controllers/HomeController.js",
                 "~/scripts/Controllers/AboutController.js",
@@ -37,6 +39,8 @@ namespace App.MiniTrello.Web
                 "~/scripts/Controllers/BoardController.js",
                 "~/scripts/Controllers/AccountController.js",
                 "~/scripts/Controllers/OrganizationController.js",
+                "~/scripts/Controllers/LineController.js",
+                "~/scripts/Controllers/CardController.js",
                 "~/scripts/app.js"));
 
         }

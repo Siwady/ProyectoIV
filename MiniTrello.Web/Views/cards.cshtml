@@ -1,0 +1,20 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div>
+            <button ng-click="GoToNewCard()" class="btn btn-lg  btn-block">New Card</button>
+        </div>
+        
+        <div ng-repeat="card in cards.Cards">
+            <ul class="ds-btn nav navbar-nav navbar-left">
+                <li style="padding-left: 10px;">
+                    <a class="btn btn-lg btn-success " href="/moveCard">
+                        <i class="glyphicon glyphicon-dashboard pull-left"></i><span>{{card.Text}}<br><small></small></span>
+                    </a>
+                </li>
+            </ul>
+            <button ng-click="delete(card.Id)" class="btn btn-sm btn-danger">Delete</button>
+        </div>
+        
+    </div>
+</div>

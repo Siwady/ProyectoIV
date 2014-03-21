@@ -1,0 +1,19 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div>
+            <button ng-click="GoToNewLine()" class="btn btn-lg  btn-block">New Line</button>
+        </div>
+        <div ng-repeat="line in lines.Lines">
+            <ul class="ds-btn nav navbar-nav navbar-left">
+                <li style="padding-left: 10px;">
+                    <a class="btn btn-lg btn-success " href="/card/{{line.Id}}">
+                        <i class="glyphicon glyphicon-dashboard pull-left"></i><span>{{line.Title}}<br><small></small></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        
+    </div>
+</div>

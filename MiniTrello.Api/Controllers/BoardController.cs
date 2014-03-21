@@ -106,8 +106,8 @@ namespace MiniTrello.Api.Controllers
             return remodel.ConfigureModel("Error", "No se pudo acceder a su cuenta", remodel);
 
         }
-
-        [DELETE("boards/deleteBoard/{accesToken}")]
+        [AcceptVerbs("PUT")]
+        [PUT("boards/deleteBoard/{accesToken}")]
         public ReturnModel DeleteBoard([FromBody] BoardArchiveModel model, string accesToken)
         {
             var account = _readOnlyRepository.First<Account>(account1 => account1.Token == accesToken);
@@ -155,11 +155,15 @@ namespace MiniTrello.Api.Controllers
                         boards.Boards = new List<Board>();
                         foreach (var or in boardsModel.Boards)
                         {
-                            var o = new Board();
-                            //o.Administrator = or.Administrator;
-                            o.Title = or.Title;
-                            o.Id = or.Id;
-                            boards.Boards.Add(o);
+                            if (!or.IsArchived)
+                            {
+                                var o = new Board();
+                                //o.Administrator = or.Administrator;
+                                o.Title = or.Title;
+                                o.Id = or.Id;
+                                boards.Boards.Add(o);
+                            }
+                            
                         }
                         return boards.ConfigureModel("Successfull", "", boards);
                     }

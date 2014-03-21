@@ -11,13 +11,26 @@ angular.module('app.controllers')
         $scope.newOrganizationModel = { Title: '', Description: '' };
 
         $scope.organizations = [];
-
+        $scope.deleteOrganization = {Id:''};
         $scope.getOrganizationsForLoggedUser = function () {
 
             organizationServices
                 .getOrganizationsForLoggedUser()
               .success(function (data, status, headers, config) {
                   $scope.organizations = data;
+              })
+              .error(function (data, status, headers, config) {
+                  console.log(data);
+              });
+            //$location.path('/');
+        };
+
+        $scope.delete = function (organizationId) {
+            $scope.deleteOrganization.Id = organizationId;
+            organizationServices
+                .delete($scope.deleteOrganization)
+              .success(function (data, status, headers, config) {
+                  $location.path('/organizations');
               })
               .error(function (data, status, headers, config) {
                   console.log(data);

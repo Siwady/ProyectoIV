@@ -27,22 +27,14 @@
             <nav class="collapse navbar-collapse spa-navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a ng-show="isLogged()" href="./boards">Boards</a>
+                        <a ng-show="isLogged()" href="./changePassword">Change Password</a>
                     </li>
-                    <li>
-                        <a ng-show="isLogged()" href="./organizations" >Organization</a>
-                    </li>
-                    <li>
-                        <a ng-show="isLogged()" href="./board/new">New Board</a>
-                    </li>
-                    <li>
-                        <a ng-show="isLogged()" href="./organization/new">New Organization</a>
-                    </li>
+                   
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a ng-hide="isLogged()" href="./login">Sign In</a>
-                        <a ng-show="isLogged()" href="#">Bienvenido Kehimer</a>
+                        <a ng-show="isLogged()" href="#">Bienvenido {{name}}</a>
                         
                     </li>
                     <li>

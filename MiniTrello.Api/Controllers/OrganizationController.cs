@@ -54,8 +54,8 @@ namespace MiniTrello.Api.Controllers
             }
             return remodel.ConfigureModel("Error", "No se pudo acceder a su cuenta", remodel);
         }
-
-        [DELETE("organization/{accesToken}")]
+         [AcceptVerbs("PUT")]
+        [PUT("organization/{accesToken}")]
         public ReturnModel Archive([FromBody] OrganizationArchiveModel model, string accesToken)
         {
             var account = _readOnlyRepository.First<Account>(account1 => account1.Token == accesToken);
@@ -109,10 +109,13 @@ namespace MiniTrello.Api.Controllers
                     organ.Organizations = new List<Organization>();
                     foreach (var or in organizationsmodel.Organizations)
                     {
-                        Organization o=new Organization();
-                        o.Title = or.Title;
-                        o.Id = or.Id;
-                        organ.Organizations.Add(o);
+                        if (!or.IsArchived)
+                        {
+                            Organization o = new Organization();
+                            o.Title = or.Title;
+                            o.Id = or.Id;
+                            organ.Organizations.Add(o);
+                        }
                     }
                     return organ.ConfigureModel("Successfull", "", organ);
                 }

@@ -13,15 +13,25 @@ angular.module('app.controllers')
         $scope.hasError = false;
     $scope.errorMessage = '';
 
+    
         $scope.isLogged = function() {
             return $window.sessionStorage.token != null;
         };
         
+        $scope.getNameUserLogged = function () {
+            AccountServices.getNameUserLogged()
+                .success(function(data, status, headers, config) {
+                    $scope.name=data;
+                });
+        };
+
         $scope.loginModel = { Email: '', Password: '' };
 
-    $scope.registerModel = { Email: '', Password: '', FirstName: '', LastName: '', ConfirmPassword: '' };
-        
-        // TODO: Authorize a user
+        $scope.registerModel = { Email: '', Password: '', FirstName: '', LastName: '', ConfirmPassword: '' };
+
+    $scope.changePassword = { OldPassword: '', NewPassword: '' ,Token:$window.sessionStorage.token};
+
+    // TODO: Authorize a user
         $scope.login = function () {
 
             AccountServices
@@ -44,11 +54,39 @@ angular.module('app.controllers')
             //$location.path('/');
         };
 
+        $scope.resetPassword = function () {
+            var model = {
+                Email: $scope.Email
+            };
+            AccountServices.resetPassword(model).success(function (data, status, headers, config) {
+                console.log(data);
+                $location.path('/login');
+            })
+            .error(function (data, status, headers, config) {
+                console.log(data);
+            });
+        };
+
+        $scope.ChangePassword = function () {
+            
+            AccountServices.ChangePassword($scope.changePassword).success(function (data, status, headers, config) {
+                console.log(data);
+                $location.path('/organizations');
+            })
+            .error(function (data, status, headers, config) {
+                console.log(data);
+            });
+        };
+
     $scope.goToRegister = function() {
         $location.path('/register');
     };
     $scope.goToLogin = function() {
         $location.path('/login');
+    };
+    
+    $scope.goToLogin = function () {
+        $location.path('/organizations');
     };
 
     $scope.register = function() {
@@ -63,7 +101,7 @@ angular.module('app.controllers')
                 console.log(data);
             });
     };
-
+   
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });

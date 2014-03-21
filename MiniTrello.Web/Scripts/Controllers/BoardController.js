@@ -11,19 +11,11 @@ angular.module('app.controllers')
     .controller('BoardController', ['$scope', '$location', '$window', 'BoardServices', '$stateParams', function ($scope, $location, $window, boardServices, $stateParams) {
 
 
-      // $scope.boardDetailId = $stateParams.boardId;
-
-        //console.log($location.search().boardId);
         $scope.newBoardModel = { Title: '', Description: '', OrganizationId: $stateParams.organizationId};
-
-        //console.log($scope.boardDetailId);
+        $scope.deleteBoard = { Id: ''};
+       
 
         $scope.boards = [];
-
-        /*var board = { Id: 1, Name: 'Myboard1', Description: 'Description1' };
-        var board1 = { Id: 2, Name: 'Myboard2', Description: 'Description2' };
-        $scope.boards.push(board);
-    $scope.boards.push(board1);*/
         $scope.addBoard = function () {
             console.log("dentro de la funcion");
             boardServices
@@ -33,6 +25,20 @@ angular.module('app.controllers')
                     $location.path('/board/'+$stateParams.organizationId);
               })
               .error(function (data, status, headers, config) {
+              });
+            //$location.path('/');
+        };
+
+        $scope.delete = function (boardId) {
+            $scope.deleteBoard.Id = boardId;
+            boardServices
+                .delete($scope.deleteBoard)
+              .success(function (data, status, headers, config) {
+                  $location.path('/board/' + $stateParams.organizationId);
+              })
+              .error(function (data, status, headers, config) {
+                  console.log(data);
+                  $location.path('/board/' + $stateParams.organizationId);
               });
             //$location.path('/');
         };

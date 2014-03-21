@@ -190,7 +190,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountControllerHelpers\RegisterValidator.cs" />
     <Compile Include="Controllers\BoardController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LineController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CustomExceptions\BadRequestException.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Models\CardArchiveModel.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Models\ChangeBoardsTitleModel.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\CreateBoardsModel.cs" />
     <Compile Include="Models\LineModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\ReturnActivitiesModel.cs" />
     <Compile Include="Models\ReturnBoardsModel.cs" />
+    <Compile Include="Models\ReturnLinesModel.cs" />
     <Compile Include="Models\ReturnMembersModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\ReturnOrganizationModel.cs" />

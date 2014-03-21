@@ -16,7 +16,17 @@ angular.module('app.services',[]).factory('AccountServices', ['$http', function 
         return $http.post(baseUrl + '/register', model);
     };
 
+    account.resetPassword = function (data) {
+        return $http.put(baseUrl + '/resetPassword', data);
+    };
 
+    account.ChangePassword= function (data) {
+        return $http.put(baseUrl + "/ChangePassword/" + data.Token, data);
+    };
+
+    account.getNameUserLogged = function() {
+        return $http.get(baseUrl + '/' + $window.sessionStorage.token);
+    };
     return account;
 
 }]);

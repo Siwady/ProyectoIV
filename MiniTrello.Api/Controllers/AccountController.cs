@@ -113,8 +113,7 @@ namespace MiniTrello.Api.Controllers
             if (account != null)
             {
                 account.Password = Guid.NewGuid().ToString();
-                account.Password = Encrypt(account.Password);
-                var tokenCreated = _writeOnlyRepository.Update(account);
+                
                 RestClient client = new RestClient();
                 client.BaseUrl = "https://api.mailgun.net/v2";
                 client.Authenticator =
@@ -128,10 +127,31 @@ namespace MiniTrello.Api.Controllers
                 request.AddParameter("to", account.Email);
                 request.AddParameter("to", account.Email);
                 request.AddParameter("subject", "ResetPassword");
-                request.AddParameter("text", "Utilice este codigo como contraseña para poder ingresar y CAMBIELA " + account.Password + "!");
+                request.AddParameter("text", "Utilice este codigo como contraseña para poder ingresar y CAMBIELA " + account.Password);
                 request.Method = Method.POST;
                 client.Execute(request);
+                account.Password = Encrypt(account.Password);
+                var tokenCreated = _writeOnlyRepository.Update(account);
                 return remodel.ConfigureModel("Success", "Se le envio un mensaje a su correo", remodel);
+            }
+            return remodel.ConfigureModel("Error", "No se pudo realizar la accion", remodel);
+        }
+
+        [AcceptVerbs("PUT")]
+        [PUT("changePassword/{accessToken}")]
+        public ReturnModel ChangePassword([FromBody]ChangePasswordModel model,string accessToken)
+        {
+            ReturnModel remodel = new ReturnModel();
+            var account = _readOnlyRepository.First<Account>(account1 => account1.Token == accessToken);
+            if (account != null)
+            {
+                if (account.Password == Encrypt(model.OldPassword))
+                {
+                    account.Password = Encrypt(model.NewPassword);
+                    var Updateaccount = _writeOnlyRepository.Update(account);
+                    return remodel.ConfigureModel("Success", "se cambio correctamente", remodel);
+                }
+                return remodel.ConfigureModel("Error", "no es la misma contraseña", remodel);
             }
             return remodel.ConfigureModel("Error", "No se pudo realizar la accion", remodel);
         }
@@ -174,6 +194,13 @@ namespace MiniTrello.Api.Controllers
             }
             return remodel.ConfigureModel("Error", "No se pudo acceder a su cuenta", remodel);
         }
+        [AcceptVerbs("GET")]
+        [GET("{accessToken}")]
+        public string GetName(string accessToken)
+        {
+            var account = _readOnlyRepository.First<Account>(account1 => account1.Token == accessToken);
+            return account.FirstName;
+        }
 
         
 
@@ -201,8 +228,6 @@ namespace MiniTrello.Api.Controllers
             return Convert.ToBase64String(cipherTextBytes);
         }
     }
-
-
 
 
     public class BadRequestException : HttpResponseException

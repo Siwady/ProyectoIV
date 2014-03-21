@@ -11,7 +11,7 @@
                              class="img-rounded img-responsive" />
                     </div>
                     <div class="col-xs-9 col-md-9 section-box">
-                        <a href="/board/{{organization.Id}}  ">
+                        <a href="/board/{{organization.Id}}">
                             <h2>
                                 {{organization.Title}}
                             </h2>
@@ -30,6 +30,9 @@
                                 <span class="glyphicon glyphicon-comment"></span>(100 Comments)
                             </div>
                         </div>
+                    </div>
+                    <div >
+                        <button ng-click="delete(organization.Id)" class="btn btn-sm btn-danger">Delete</button>
                     </div>
                 </div>
             </div>

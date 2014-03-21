@@ -2,14 +2,22 @@
 <div class="container" >
     <div class="row">
         <div>
-            <button ng-click="GoToNewBoard()" class="btn btn-lg btn-success btn-block">New Board</button>
+            <button ng-click="GoToNewBoard()" class="btn btn-lg  btn-block">New Board</button>
         </div>
-        <ul class="ds-btn nav navbar-nav navbar-left" ng-repeat="board in boards.Boards">
-            <li style="padding-left: 10px;">
-                <a class="btn btn-lg btn-success " href="/line/{{board.Id}}">
-                    <i class="glyphicon glyphicon-dashboard pull-left"></i><span>{{board.Title}}<br><small>{{board.Administrator}}</small></span>
-                </a>
-            </li>
-        </ul>
+        <div ng-repeat="board in boards.Boards">
+            <ul class="ds-btn nav navbar-nav navbar-left">
+                <li style="padding-left: 10px;">
+                    <a class="btn btn-lg btn-success " href="/line/{{board.Id}}">
+                        <i class="glyphicon glyphicon-dashboard pull-left"></i><span>{{board.Title}}<br><small>{{board.Administrator}}</small></span>
+                    </a>
+                </li>
+
+            </ul>
+            
+            <button ng-click="delete(board.Id)" class="btn btn-sm btn-danger">Delete</button>
+           
+        </div>
+        
+        
     </div>
 </div>

@@ -16,6 +16,9 @@ angular.module('app.services').factory('OrganizationServices', ['$http', '$windo
         console.log("entreeee")
         return $http.post(baseUrl + '/createOrganization/' + $window.sessionStorage.token, model);
     };
+    organization.delete = function (model) {
+        return $http.put(baseUrl + '/organization/' + $window.sessionStorage.token, model);
+    };
     return organization;
 
 }]);
