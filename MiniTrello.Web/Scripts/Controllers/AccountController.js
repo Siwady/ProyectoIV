@@ -33,12 +33,11 @@ angular.module('app.controllers')
 
     // TODO: Authorize a user
         $scope.login = function () {
-
             AccountServices
                 .login($scope.loginModel)
               .success(function (data, status, headers, config) {
-                  
-                  $window.sessionStorage.token = data.Token;
+                        $window.sessionStorage.token = data.Token;
+                    
                   if(data.Code !="Error")
                      $location.path('/organizations');
               })
@@ -85,9 +84,7 @@ angular.module('app.controllers')
         $location.path('/login');
     };
     
-    $scope.goToLogin = function () {
-        $location.path('/organizations');
-    };
+
 
     $scope.register = function() {
         AccountServices
