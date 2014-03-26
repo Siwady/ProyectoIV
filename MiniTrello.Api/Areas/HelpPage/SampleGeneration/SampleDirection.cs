@@ -1,4 +1,4 @@
-namespace MiniTrello.Api.Areas.HelpPage
+namespace MiniTrello.Win8Phone.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

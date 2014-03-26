@@ -1,15 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Web;
 using System.Web.Http;
-using System.Web.Optimization;
-using System.Web.UI;
 using AttributeRouting.Web.Http;
 using AutoMapper;
-using MiniTrello.Api.Models;
 using MiniTrello.Domain.Entities;
 using MiniTrello.Domain.Services;
+using MiniTrello.Win8Phone.Models;
 
 namespace MiniTrello.Api.Controllers
 {

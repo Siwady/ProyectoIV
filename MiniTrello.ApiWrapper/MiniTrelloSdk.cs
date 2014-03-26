@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
-using MiniTrello.Domain.DataObjects;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Domain.Entities;
 using RestSharp;
 
@@ -46,14 +46,14 @@ namespace MiniTrello.ApiWrapper
             return response.Data;
         }
 
-        public static ReturnModel CreateBoard(BoardModel boardModel)
+        public static ReturnModel CreateBoard(AccountBoardsModel boardModel)
         {
             var client = new RestClient(BaseUrl);
             var request = InitRequest("/CreateBoard/" + ConfigurationManager.AppSettings["accessToken"], Method.POST, boardModel);
             IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
             return response.Data;
         }
-        public static ReturnModel CreateLine(LaneModel laneModel)
+        public static ReturnModel CreateLine(LineModel laneModel)
         {
             var client = new RestClient(BaseUrl);
             var request = InitRequest("/CreateLane/" + ConfigurationManager.AppSettings["accessToken"], Method.POST, laneModel);
@@ -69,34 +69,10 @@ namespace MiniTrello.ApiWrapper
             return response.Data;
         }
 
-        public static ReturnModel ChangeBoardName(ChangeBoardNameModel model)
+        public static ReturnModel ChangeBoardName(ChangeBoardsTitleModel model)
         {
             var client = new RestClient(BaseUrl);
             var request = InitRequest("/boards/changeName/" + ConfigurationManager.AppSettings["accessToken"], Method.PUT, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
-
-        public static ReturnModel ChangeOrganizationName(ChangeOrganizationNameModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/organizations/changeName/" + ConfigurationManager.AppSettings["accessToken"], Method.PUT, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
-
-        public static ReturnModel ChangeOrganizationName(ChangeLaneNameModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/lanes/changeName/" + ConfigurationManager.AppSettings["accessToken"], Method.PUT, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
-
-        public static ReturnModel ChangeOrganizationName(ChangeCardDescriptionModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/cards/changeDescription/" + ConfigurationManager.AppSettings["accessToken"], Method.PUT, model);
             IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
             return response.Data;
         }
@@ -125,15 +101,8 @@ namespace MiniTrello.ApiWrapper
             return response.Data;
         }
 
-        public static ReturnModel ChangeOrganizationName(DeleteOrganizationModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/organizations/deleteOrganization/" + ConfigurationManager.AppSettings["accessToken"], Method.DELETE, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
 
-        public static ReturnModel ChangeOrganizationName(DeleteBoardModel model)
+        public static ReturnModel DeleteBoard(BoardArchiveModel model)
         {
             var client = new RestClient(BaseUrl);
             var request = InitRequest("/boards/deleteBoard/" + ConfigurationManager.AppSettings["accessToken"], Method.DELETE, model);
@@ -141,27 +110,9 @@ namespace MiniTrello.ApiWrapper
             return response.Data;
         }
 
-        public static ReturnModel ChangeOrganizationName(DeleteLaneModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/lanes/deleteOrganization/" + ConfigurationManager.AppSettings["accessToken"], Method.DELETE, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
-
-        public static ReturnModel ChangeOrganizationName(DeleteCardModel model)
-        {
-            var client = new RestClient(BaseUrl);
-            var request = InitRequest("/cards/deleteOrganization/" + ConfigurationManager.AppSettings["accessToken"], Method.DELETE, model);
-            IRestResponse<ReturnModel> response = client.Execute<ReturnModel>(request);
-            return response.Data;
-        }
-
-        
-
         private static string BaseUrl
         {
-            get { return ConfigurationManager.AppSettings["baseUrl"]; }
+            get { return "http://localhost:1416"; }
         }
 
         public static List<OrganizationModel> GetOrganization()
@@ -173,68 +124,5 @@ namespace MiniTrello.ApiWrapper
         
     }
 
-    public class ReturnModel
-    {
-    }
-
-    public class ResetPasswordModel
-    {
-    }
-
-    public class UpdateDataModel
-    {
-    }
-
-    public class MoveCardModel
-    {
-    }
-
-    public class DeleteCardModel
-    {
-    }
-
-    public class DeleteLaneModel
-    {
-    }
-
-    public class DeleteBoardModel
-    {
-    }
-
-    public class DeleteOrganizationModel
-    {
-    }
-
-    public class ChangeCardDescriptionModel
-    {
-    }
-
-    public class ChangeLaneNameModel
-    {
-    }
-
-    public class ChangeOrganizationNameModel
-    {
-    }
-
-    public class ChangeBoardNameModel
-    {
-    }
-
-    public class CardModel
-    {
-    }
-
-    public class LaneModel
-    {
-    }
-
-    public class BoardModel
-    {
-
-    }
-
-    public class OrganizationModel
-    {
-    }
+    
 }

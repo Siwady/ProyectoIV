@@ -7,7 +7,6 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MiniTrello.Win8Phone.Resources;
-
 namespace MiniTrello.Win8Phone
 {
     public partial class App : Application

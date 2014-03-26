@@ -1,11 +1,12 @@
 ﻿using System;
 using AutoMapper;
 using MiniTrello.Api.Controllers;
-using MiniTrello.Api.Models;
+using MiniTrello.Win8Phone.Controllers;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Domain.Entities;
 using MiniTrello.Infrastructure;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     public class ConfigureAutomapper : IBootstrapperTask
     {

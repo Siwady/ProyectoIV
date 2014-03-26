@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using MiniTrello.Api.Areas.HelpPage.Models;
+using MiniTrello.Win8Phone.Areas.HelpPage.Models;
 
-namespace MiniTrello.Api.Areas.HelpPage.Controllers
+namespace MiniTrello.Win8Phone.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

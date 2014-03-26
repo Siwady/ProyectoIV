@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MiniTrello.Api.Areas.HelpPage
+namespace MiniTrello.Win8Phone.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

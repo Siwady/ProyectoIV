@@ -1,9 +1,9 @@
 
-using MiniTrello.Api.Models;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Domain.Entities;
 using MiniTrello.Domain.Services;
 
-namespace MiniTrello.Api.Controllers.AccountControllerHelpers
+namespace MiniTrello.Win8Phone.Controllers.AccountControllerHelpers
 {
     public class RegisterValidator : IRegisterValidator<AccountRegisterModel>
     {

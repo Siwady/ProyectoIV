@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
 
-namespace MiniTrello.Api.Controllers
+namespace MiniTrello.Win8Phone.Controllers
 {
     public class ValuesController : ApiController
     {

@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace MiniTrello.Api.Areas.HelpPage
+namespace MiniTrello.Win8Phone.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

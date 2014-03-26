@@ -1,4 +1,4 @@
-namespace MiniTrello.Api.Models
+namespace MiniTrello.Win8Phone.Models
 {
     public class ReturnModel
     {

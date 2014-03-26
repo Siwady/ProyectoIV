@@ -6,11 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
 using AutoMapper;
-using MiniTrello.Api.Models;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Domain.Entities;
 using MiniTrello.Domain.Services;
 
-namespace MiniTrello.Api.Controllers
+namespace MiniTrello.Win8Phone.Controllers
 {
     public class BoardController : ApiController
     {

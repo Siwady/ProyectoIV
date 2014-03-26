@@ -1,6 +1,6 @@
-using MiniTrello.Api.Controllers;
+using MiniTrello.Win8Phone.Controllers;
 
-namespace MiniTrello.Api.Models
+namespace MiniTrello.Win8Phone.Models
 {
     public class AccountBoardsModel:ReturnModel
     {

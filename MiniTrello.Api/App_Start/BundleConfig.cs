@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     public class BundleConfig
     {

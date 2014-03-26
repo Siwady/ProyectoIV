@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     public class FilterConfig
     {

@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace MiniTrello.Api.CustomExceptions
+namespace MiniTrello.Win8Phone.CustomExceptions
 {
     public class BadRequestException : HttpResponseException
     {

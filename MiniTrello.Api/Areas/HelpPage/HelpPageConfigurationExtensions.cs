@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using MiniTrello.Api.Areas.HelpPage.Models;
+using MiniTrello.Win8Phone.Areas.HelpPage.Models;
 
-namespace MiniTrello.Api.Areas.HelpPage
+namespace MiniTrello.Win8Phone.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

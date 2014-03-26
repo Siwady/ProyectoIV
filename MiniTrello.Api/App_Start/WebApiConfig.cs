@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     public static class WebApiConfig
     {

@@ -8,10 +8,10 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
-using MiniTrello.Api.Controllers;
+using MiniTrello.Win8Phone.Controllers;
 using MiniTrello.Infrastructure;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801

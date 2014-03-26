@@ -1,12 +1,12 @@
 using Autofac;
 using AutoMapper;
-using MiniTrello.Api.Controllers.AccountControllerHelpers;
-using MiniTrello.Api.Models;
+using MiniTrello.Win8Phone.Controllers.AccountControllerHelpers;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Data;
 using MiniTrello.Domain.Services;
 using MiniTrello.Infrastructure;
 
-namespace MiniTrello.Api
+namespace MiniTrello.Win8Phone
 {
     public class ConfigureDependencies : IBootstrapperTask
     {

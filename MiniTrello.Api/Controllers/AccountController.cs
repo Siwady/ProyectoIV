@@ -10,14 +10,14 @@ using System.Web;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
 using AutoMapper;
-using MiniTrello.Api.CustomExceptions;
-using MiniTrello.Api.Models;
+using MiniTrello.Win8Phone.CustomExceptions;
+using MiniTrello.Win8Phone.Models;
 using MiniTrello.Domain.Entities;
 using MiniTrello.Domain.Services;
 using RestSharp;
 
 
-namespace MiniTrello.Api.Controllers
+namespace MiniTrello.Win8Phone.Controllers
 {
     public class AccountController : ApiController
     {
