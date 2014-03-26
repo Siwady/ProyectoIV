@@ -4,6 +4,7 @@ using FluentNHibernate.Cfg.Db;
 using MiniTrello.Data;
 using NHibernate;
 
+
 namespace MiniTrello.Infrastructure
 {
     public class ConfigureDatabase : IBootstrapperTask
