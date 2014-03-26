@@ -2,7 +2,7 @@
 
 namespace MiniTrello.ApiWrapper.Specs
 {
-    public class when_user_wants_to_login
+    /*public class when_user_wants_to_login
     {
         static MiniTrelloSdk _minitrelloApiWrapper;
         //static AccountLoginModel _accountLoginModel;
@@ -13,5 +13,5 @@ namespace MiniTrello.ApiWrapper.Specs
         //Because of = () => { _result = MiniTrelloSdk.Login(_accountLoginModel); };
 
         //It should_return_the_expected_token = () => { };
-    }
+    }*/
 }
